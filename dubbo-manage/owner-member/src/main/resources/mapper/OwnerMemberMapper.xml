@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubbo.manage.mapper.OwnerMemberMapper">
+  <resultMap id="BaseResultMap" type="com.dubbo.manage.domain.OwnerMember">
+    <!--@mbg.generated-->
+    <id column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="member_relation" jdbcType="VARCHAR" property="memberRelation" />
+    <result column="member_phone" jdbcType="VARCHAR" property="memberPhone" />
+    <result column="member_sex" jdbcType="VARCHAR" property="memberSex" />
+    <result column="member_age" jdbcType="INTEGER" property="memberAge" />
+    <result column="owner_id" jdbcType="INTEGER" property="ownerId" />
+    <result column="member_del" jdbcType="INTEGER" property="memberDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    member_id, member_name, member_relation, member_phone, member_sex, member_age, owner_id, 
+    member_del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from owner_member
+    where owner_id = #{ownerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from owner_member
+    where member_id = #{memberId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="member_id" keyProperty="memberId" parameterType="com.dubbo.manage.domain.OwnerMember" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into owner_member (member_name, member_relation, member_phone, 
+      member_sex, member_age, owner_id, 
+      member_del)
+    values (#{memberName,jdbcType=VARCHAR}, #{memberRelation,jdbcType=VARCHAR}, #{memberPhone,jdbcType=VARCHAR}, 
+      #{memberSex,jdbcType=VARCHAR}, #{memberAge,jdbcType=INTEGER}, #{ownerId,jdbcType=INTEGER}, 
+      #{memberDel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="member_id" keyProperty="memberId" parameterType="com.dubbo.manage.domain.OwnerMember" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into owner_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="memberName != null">
+        member_name,
+      </if>
+      <if test="memberRelation != null">
+        member_relation,
+      </if>
+      <if test="memberPhone != null">
+        member_phone,
+      </if>
+      <if test="memberSex != null">
+        member_sex,
+      </if>
+      <if test="memberAge != null">
+        member_age,
+      </if>
+      <if test="ownerId != null">
+        owner_id,
+      </if>
+      <if test="memberDel != null">
+        member_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="memberName != null">
+        #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRelation != null">
+        #{memberRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="memberPhone != null">
+        #{memberPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="memberSex != null">
+        #{memberSex,jdbcType=VARCHAR},
+      </if>
+      <if test="memberAge != null">
+        #{memberAge,jdbcType=INTEGER},
+      </if>
+      <if test="ownerId != null">
+        #{ownerId,jdbcType=INTEGER},
+      </if>
+      <if test="memberDel != null">
+        #{memberDel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dubbo.manage.domain.OwnerMember">
+    <!--@mbg.generated-->
+    update owner_member
+    <set>
+      <if test="memberName != null">
+        member_name = #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRelation != null">
+        member_relation = #{memberRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="memberPhone != null">
+        member_phone = #{memberPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="memberSex != null">
+        member_sex = #{memberSex,jdbcType=VARCHAR},
+      </if>
+      <if test="memberAge != null">
+        member_age = #{memberAge,jdbcType=INTEGER},
+      </if>
+      <if test="ownerId != null">
+        owner_id = #{ownerId,jdbcType=INTEGER},
+      </if>
+      <if test="memberDel != null">
+        member_del = #{memberDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where member_id = #{memberId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dubbo.manage.domain.OwnerMember">
+    <!--@mbg.generated-->
+    update owner_member
+    set member_name = #{memberName,jdbcType=VARCHAR},
+      member_relation = #{memberRelation,jdbcType=VARCHAR},
+      member_phone = #{memberPhone,jdbcType=VARCHAR},
+      member_sex = #{memberSex,jdbcType=VARCHAR},
+      member_age = #{memberAge,jdbcType=INTEGER},
+      owner_id = #{ownerId,jdbcType=INTEGER},
+      member_del = #{memberDel,jdbcType=INTEGER}
+    where member_id = #{memberId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubbo.information.mapper.OwnerInformationMapper">
+  <resultMap id="BaseResultMap" type="com.dubbo.information.domain.OwnerInformation">
+    <!--@mbg.generated-->
+    <id column="owner_id" jdbcType="INTEGER" property="ownerId" />
+    <result column="owner_name" jdbcType="VARCHAR" property="ownerName" />
+    <result column="owner_sex" jdbcType="VARCHAR" property="ownerSex" />
+    <result column="owner_age" jdbcType="VARCHAR" property="ownerAge" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="owner_del" jdbcType="INTEGER" property="ownerDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    owner_id, owner_name, owner_sex, owner_age, phone, creator, owner_del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from owner_information
+    where owner_id = #{ownerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from owner_information
+    where owner_id = #{ownerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="owner_id" keyProperty="ownerId" parameterType="com.dubbo.information.domain.OwnerInformation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into owner_information (owner_name, owner_sex, owner_age, 
+      phone, creator, owner_del
+      )
+    values (#{ownerName,jdbcType=VARCHAR}, #{ownerSex,jdbcType=VARCHAR}, #{ownerAge,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{ownerDel,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="owner_id" keyProperty="ownerId" parameterType="com.dubbo.information.domain.OwnerInformation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into owner_information
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ownerName != null">
+        owner_name,
+      </if>
+      <if test="ownerSex != null">
+        owner_sex,
+      </if>
+      <if test="ownerAge != null">
+        owner_age,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="ownerDel != null">
+        owner_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ownerName != null">
+        #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSex != null">
+        #{ownerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAge != null">
+        #{ownerAge,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerDel != null">
+        #{ownerDel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dubbo.information.domain.OwnerInformation">
+    <!--@mbg.generated-->
+    update owner_information
+    <set>
+      <if test="ownerName != null">
+        owner_name = #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSex != null">
+        owner_sex = #{ownerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAge != null">
+        owner_age = #{ownerAge,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerDel != null">
+        owner_del = #{ownerDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where owner_id = #{ownerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dubbo.information.domain.OwnerInformation">
+    <!--@mbg.generated-->
+    update owner_information
+    set owner_name = #{ownerName,jdbcType=VARCHAR},
+      owner_sex = #{ownerSex,jdbcType=VARCHAR},
+      owner_age = #{ownerAge,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      owner_del = #{ownerDel,jdbcType=INTEGER}
+    where owner_id = #{ownerId,jdbcType=INTEGER}
+  </update>
+</mapper>

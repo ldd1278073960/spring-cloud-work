@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: owner-member
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.93.202.227:8848
+
+dubbo:
+  registry:
+    address: nacos://47.93.202.227:8848
+  protocol:
+    name: dubbo
+    port: -1
+  scan:
+    base-packages: com.dubbo.manage.service
