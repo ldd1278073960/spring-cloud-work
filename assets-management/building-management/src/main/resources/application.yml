@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: packing-management
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.93.202.227
+server:
+  port: 7000

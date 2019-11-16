@@ -3,6 +3,8 @@ spring:
     active: dev
   application:
     name: owner-Information
+  main:
+    allow-bean-definition-overriding: true
   cloud:
     nacos:
       discovery:
@@ -14,8 +16,11 @@ dubbo:
   protocol:
     name: dubbo
     port: -1
-#  cloud:
-#    subscribed-services: owner-member
+  cloud:
+    subscribed-services: owner-member
+
+
+
 
 server:
   port: 8081

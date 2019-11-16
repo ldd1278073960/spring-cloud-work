@@ -116,4 +116,6 @@
       owner_del = #{ownerDel,jdbcType=INTEGER}
     where owner_id = #{ownerId,jdbcType=INTEGER}
   </update>
+
+
 </mapper>

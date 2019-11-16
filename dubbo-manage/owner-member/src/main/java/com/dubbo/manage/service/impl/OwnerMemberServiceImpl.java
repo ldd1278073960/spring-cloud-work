@@ -1,4 +1,4 @@
-package com.dubbo.manage.service;
+package com.dubbo.manage.service.impl;
 
 import com.dubbo.api.domain.OwnerMemberVo;
 import com.dubbo.api.service.OwnerMemberService;

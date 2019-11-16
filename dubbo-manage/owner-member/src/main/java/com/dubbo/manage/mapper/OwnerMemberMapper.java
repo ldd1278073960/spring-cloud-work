@@ -14,6 +14,7 @@ public interface OwnerMemberMapper {
 
     List<OwnerMemberVo> selectByPrimaryKey(int ownerId);
 
+
     int updateByPrimaryKeySelective(OwnerMember record);
 
     int updateByPrimaryKey(OwnerMember record);

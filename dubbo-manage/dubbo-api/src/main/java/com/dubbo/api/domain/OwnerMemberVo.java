@@ -2,8 +2,10 @@ package com.dubbo.api.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class OwnerMemberVo {
+public class OwnerMemberVo implements Serializable {
     /**
     * 业主成员id
     */

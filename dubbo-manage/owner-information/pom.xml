@@ -37,6 +37,13 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!--   用于网络通信，如果模块之间需要调用时导入openfeign依赖包（一般只在消费层中使用的到，生产者使用不到）   -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+
     </dependencies>
 
 

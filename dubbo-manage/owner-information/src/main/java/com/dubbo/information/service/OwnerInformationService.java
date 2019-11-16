@@ -1,6 +1,6 @@
 package com.dubbo.information.service;
 
-import com.dubbo.information.domain.OwnerInformation;
+import com.dubbo.information.domain.vo.OwnerInformationOwnerCarVo;
 import com.dubbo.information.domain.vo.OwnerInformationVo;
 
 /**
@@ -8,7 +8,8 @@ import com.dubbo.information.domain.vo.OwnerInformationVo;
  */
 public interface OwnerInformationService {
 
-    OwnerInformation selectByPrimaryKey(int ownerId);
+    OwnerInformationVo selectByPrimaryKey(int ownerId);
 
 
+    OwnerInformationOwnerCarVo selectByOwnerCatList(int ownerId);
 }

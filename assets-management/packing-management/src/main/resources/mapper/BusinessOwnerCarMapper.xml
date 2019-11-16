@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dp.floormanagement.mapper.BusinessOwnerCarMapper">
+    <resultMap id="BaseResultMap" type="com.dp.floormanagement.domain.BusinessOwnerCar">
+        <!--@mbg.generated-->
+        <id column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="owner_id" jdbcType="INTEGER" property="ownerId"/>
+        <result column="b_id" jdbcType="VARCHAR" property="bId"/>
+        <result column="car_num" jdbcType="VARCHAR" property="carNum"/>
+        <result column="car_brand" jdbcType="VARCHAR" property="carBrand"/>
+        <result column="car_type" jdbcType="VARCHAR" property="carType"/>
+        <result column="car_color" jdbcType="VARCHAR" property="carColor"/>
+        <result column="ps_id" jdbcType="VARCHAR" property="psId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="operate" jdbcType="VARCHAR" property="operate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        car_id, owner_id, b_id, car_num, car_brand, car_type, car_color, ps_id, user_id,
+        remark, create_time, operate
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from business_owner_car
+        where owner_id = #{ownerId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from business_owner_car
+        where car_id = #{carId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="car_id" keyProperty="carId"
+            parameterType="com.dp.floormanagement.domain.BusinessOwnerCar" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into business_owner_car (owner_id, b_id, car_num,
+        car_brand, car_type, car_color,
+        ps_id, user_id, remark,
+        create_time, operate)
+        values (#{ownerId,jdbcType=INTEGER}, #{bId,jdbcType=VARCHAR}, #{carNum,jdbcType=VARCHAR},
+        #{carBrand,jdbcType=VARCHAR}, #{carType,jdbcType=VARCHAR}, #{carColor,jdbcType=VARCHAR},
+        #{psId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{operate,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="car_id" keyProperty="carId"
+            parameterType="com.dp.floormanagement.domain.BusinessOwnerCar" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into business_owner_car
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ownerId != null">
+                owner_id,
+            </if>
+            <if test="bId != null">
+                b_id,
+            </if>
+            <if test="carNum != null">
+                car_num,
+            </if>
+            <if test="carBrand != null">
+                car_brand,
+            </if>
+            <if test="carType != null">
+                car_type,
+            </if>
+            <if test="carColor != null">
+                car_color,
+            </if>
+            <if test="psId != null">
+                ps_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="operate != null">
+                operate,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ownerId != null">
+                #{ownerId,jdbcType=INTEGER},
+            </if>
+            <if test="bId != null">
+                #{bId,jdbcType=VARCHAR},
+            </if>
+            <if test="carNum != null">
+                #{carNum,jdbcType=VARCHAR},
+            </if>
+            <if test="carBrand != null">
+                #{carBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carType != null">
+                #{carType,jdbcType=VARCHAR},
+            </if>
+            <if test="carColor != null">
+                #{carColor,jdbcType=VARCHAR},
+            </if>
+            <if test="psId != null">
+                #{psId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operate != null">
+                #{operate,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.dp.floormanagement.domain.BusinessOwnerCar">
+        <!--@mbg.generated-->
+        update business_owner_car
+        <set>
+            <if test="ownerId != null">
+                owner_id = #{ownerId,jdbcType=INTEGER},
+            </if>
+            <if test="bId != null">
+                b_id = #{bId,jdbcType=VARCHAR},
+            </if>
+            <if test="carNum != null">
+                car_num = #{carNum,jdbcType=VARCHAR},
+            </if>
+            <if test="carBrand != null">
+                car_brand = #{carBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carType != null">
+                car_type = #{carType,jdbcType=VARCHAR},
+            </if>
+            <if test="carColor != null">
+                car_color = #{carColor,jdbcType=VARCHAR},
+            </if>
+            <if test="psId != null">
+                ps_id = #{psId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operate != null">
+                operate = #{operate,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where car_id = #{carId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.dp.floormanagement.domain.BusinessOwnerCar">
+        <!--@mbg.generated-->
+        update business_owner_car
+        set owner_id = #{ownerId,jdbcType=INTEGER},
+        b_id = #{bId,jdbcType=VARCHAR},
+        car_num = #{carNum,jdbcType=VARCHAR},
+        car_brand = #{carBrand,jdbcType=VARCHAR},
+        car_type = #{carType,jdbcType=VARCHAR},
+        car_color = #{carColor,jdbcType=VARCHAR},
+        ps_id = #{psId,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        operate = #{operate,jdbcType=VARCHAR}
+        where car_id = #{carId,jdbcType=INTEGER}
+    </update>
+</mapper>

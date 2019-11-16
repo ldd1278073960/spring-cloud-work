@@ -12,15 +12,25 @@
     <result column="owner_id" jdbcType="INTEGER" property="ownerId" />
     <result column="member_del" jdbcType="INTEGER" property="memberDel" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <resultMap id="ownerMember" type="com.dubbo.api.domain.OwnerMemberVo">
+    <!--@mbg.generated-->
+    <id column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="member_relation" jdbcType="VARCHAR" property="memberRelation" />
+    <result column="member_phone" jdbcType="VARCHAR" property="memberPhone" />
+    <result column="member_sex" jdbcType="VARCHAR" property="memberSex" />
+    <result column="member_age" jdbcType="INTEGER" property="memberAge" />
+    <result column="owner_id" jdbcType="INTEGER" property="ownerId" />
+  </resultMap>
+  <sql id="Member_List">
     <!--@mbg.generated-->
     member_id, member_name, member_relation, member_phone, member_sex, member_age, owner_id, 
     member_del
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ownerMember">
     <!--@mbg.generated-->
     select 
-    <include refid="Base_Column_List" />
+    <include refid="Member_List" />
     from owner_member
     where owner_id = #{ownerId,jdbcType=INTEGER}
   </select>
@@ -128,4 +138,7 @@
       member_del = #{memberDel,jdbcType=INTEGER}
     where member_id = #{memberId,jdbcType=INTEGER}
   </update>
+
+
+
 </mapper>
